@@ -1,0 +1,133 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basic styling for body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header styling */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c7a3d; /* Green color */
+  }
+  
+  header nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  header nav a:hover {
+    color: #2c7a3d; /* Green color */
+  }
+  
+  /* Main Section Styling */
+  main {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  main h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .search-container .buttons {
+    display: flex;
+  }
+  
+  .search-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  #cancel {
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  #search {
+    background-color: #2c7a3d;
+    color: white;
+  }
+  
+  #cancel:hover {
+    background-color: #ccc;
+  }
+  
+  #search:hover {
+    background-color: #225d2e;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: white;
+    padding: 40px;
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+  }
+  
+  .footer-links a:hover {
+    color: #2c7a3d;
+  }
+  
+  .social-media {
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    text-decoration: none;
+    color: #333;
+    margin: 0 15px;
+    font-size: 16px;
+  }
+  
+  .social-icon:hover {
+    color: #2c7a3d;
+  }
