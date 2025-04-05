@@ -3,131 +3,147 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  /* Basic styling for body */
-  body {
+}
+
+/* Full viewport height with no horizontal scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Make body a flex container so the footer stays at the bottom */
+body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
-  }
-  
-  /* Header styling */
-  header {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background-color: white;
     border-bottom: 2px solid #e0e0e0;
-  }
-  
-  header .logo {
+}
+
+header .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #2c7a3d; /* Green color */
-  }
-  
-  header nav a {
+    color: #2c7a3d;
+}
+
+header nav a {
     text-decoration: none;
     margin-left: 20px;
     color: #333;
     font-weight: 500;
-  }
-  
-  header nav a:hover {
-    color: #2c7a3d; /* Green color */
-  }
-  
-  /* Main Section Styling */
-  main {
+}
+
+header nav a:hover {
+    color: #2c7a3d;
+}
+
+/* Main Section Styling */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center content horizontally */
+    justify-content: center;  /* center content vertically */
+    padding: 20px;
     text-align: center;
-    margin-top: 50px;
-  }
-  
-  main h1 {
+}
+
+main h1 {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  .search-container {
+}
+
+/* Search Container Styles */
+.search-container {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .search-container input {
+}
+
+.search-container input {
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 4px;
     margin-right: 10px;
-  }
-  
-  .search-container .buttons {
+}
+
+.search-container .buttons {
     display: flex;
-  }
-  
-  .search-container button {
+}
+
+.search-container button {
     padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-left: 10px;
-  }
-  
-  #cancel {
+}
+
+#cancel {
     background-color: #e0e0e0;
     color: #333;
-  }
-  
-  #search {
+}
+
+#search {
     background-color: #2c7a3d;
     color: white;
-  }
-  
-  #cancel:hover {
+}
+
+#cancel:hover {
     background-color: #ccc;
-  }
-  
-  #search:hover {
+}
+
+#search:hover {
     background-color: #225d2e;
-  }
-  
-  /* Footer Styling */
-  footer {
+}
+
+/* Footer Styling: stick to the bottom */
+footer {
     background-color: white;
     padding: 40px;
     text-align: center;
     border-top: 2px solid #e0e0e0;
-  }
-  
-  .footer-links {
+}
+
+.footer-links {
     margin-bottom: 20px;
-  }
-  
-  .footer-links a {
+}
+
+.footer-links a {
     text-decoration: none;
     color: #333;
     margin: 0 10px;
-  }
-  
-  .footer-links a:hover {
+}
+
+.footer-links a:hover {
     color: #2c7a3d;
-  }
-  
-  .social-media {
+}
+
+.social-media {
     margin-top: 20px;
-  }
-  
-  .social-icon {
+}
+
+.social-icon {
     text-decoration: none;
     color: #333;
     margin: 0 15px;
     font-size: 16px;
-  }
-  
-  .social-icon:hover {
+}
+
+.social-icon:hover {
     color: #2c7a3d;
-  }
+}
