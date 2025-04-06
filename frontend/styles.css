@@ -342,7 +342,9 @@ footer p, footer a {
 
 
 #plant-plans {
-  justify-content: left;
+  display: flex;
+  justify-content:space-around;
+  flex-wrap: wrap;
   margin-top: 0px;
   
 }
@@ -370,7 +372,7 @@ footer p, footer a {
 .detail-container p {
   margin: 5px 0 0;
   color: #333;
-  line-height: 1.5;
+  line-height: 2.15;
   text-align: left;
 }
 
@@ -405,4 +407,11 @@ footer p, footer a {
   margin-left: 0;
   padding-left: 0;
   border-left: none;
+}
+#plant-plans .plan{
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items:center;
+flex-wrap: wrap;
 }
