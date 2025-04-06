@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Name</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <header class = "ID_header">
+        <div class="logo">MyPlant</div>
+        <nav>
+          <a href="#">Identification</a>
+          <a href="results.html">Gemini</a>
+          <a href="index.html">Garden</a>
+        </nav>
+    </header>
+
+</head>
+<body class = "ID_body">
+  <main>
+    <h1>Plant Name</h1>
+    <div class ="plant-info">
+      <img src="plant_image.jpg" alt="Plant Image">
+      <div id ="plant-details">
+        <div class="detail-container">
+          <h3>Description:</h3>
+          <p>This is an example plant description.</p>
+        </div>
+        <div class="detail-container">
+          <h3>Plant Disease:</h3>
+          <p>Example plant disease</p>
+        </div>
+        <div class="detail-container">
+          <h3>Scientific Name:</h3>
+          <p>Example Scientific Name</p>
+        </div>
+        <div class="detail-container">
+          <h3>Family:</h3>
+          <p>Example of plant family</p>
+        </div>
+        <div class="detail-container">
+          <h3>Habitat:</h3>
+          <p>This is an example of a plant habitat</p>
+        </div>
+        <div class="detail-container">
+          <h3>Soil Type:</h3>
+          <p>Example plant soil type.</p>
+        </div>
+        <div class="detail-container">
+          <h3>Origin:</h3>
+          <p>This is an example plant origin.</p>
+        </div>
+    </div>
+    <div class="carousel">
+      <img src="plant_image1.jpg" alt="Plant Image 1">
+      <img src="plant_image2.jpg" alt="Plant Image 2">
+      <img src="plant_image3.jpg" alt="Plant Image 3">
+    </div>
+    <div class="actions">
+    </div>
+    <script>
+      const images = document.querySelectorAll('.carousel img');
+      let currentIndex = 0;
+      setInterval(() => {
+        images[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].style.display = 'block';
+      }, 3000);
+
+      
+    </script>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <p>Made by Los Stars</p>
+    </div>
+  </footer>
+
+
+</html>
