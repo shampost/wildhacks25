@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from backend.models import PlantRecognitionRequest, PlantRecognitionResponse, PlantInfo
-from backend.model_loader import load_model, load_class_mapping, preprocess_image
+from server.models import PlantRecognitionRequest, PlantRecognitionResponse, PlantInfo
+from server.model_loader import load_model, load_class_mapping, preprocess_image
 import torch
 import google.generativeai as genai
 import os
@@ -42,6 +42,7 @@ def query_gemini(plant_name):
             sunlight="Unknown",
             watering="Unknown"
         )
+
 
 @router.post("/identify-plant", response_model=PlantRecognitionResponse)
 async def identify_plant(request: PlantRecognitionRequest):

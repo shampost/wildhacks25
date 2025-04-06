@@ -12,7 +12,7 @@
   <header>
     <div class="logo">MyGreenPlot</div>
     <nav>
-      <a href="#">Identification</a>
+      <a href="plantDescription.html">Identification</a>
       <a href="gemini_serve.html">Gemini</a>
       <a href="#">Garden</a>
     </nav>
@@ -25,10 +25,22 @@
     <div class="Image holder">
         <img id="imagePreview" src="" alt="Image Preview" style="max-width: 300px; display: none; margin-top: 10px;" />
         <div class="plant">
-            <p>Plant descriptions 
+            <p>Plant descriptions </p>
+
         </div>
 
     </div>
 
   </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const dataUrl = localStorage.getItem('uploadedImage');
+      if (dataUrl) {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = dataUrl;
+        imagePreview.style.display = 'block';
+      }
+    });
+    </script>
 </body>
+</html>
