@@ -2,13 +2,13 @@ from fastapi import APIRouter
 from backend.models import PlantRecognitionRequest, PlantRecognitionResponse, PlantInfo
 from backend.model_loader import load_model, load_class_mapping, preprocess_image
 import torch
-import google.generativeai as genai
+from google import genai
 import os
 
 router = APIRouter()
 
 # Load model and class mapping at startup
-model = load_model("app/model_best.pth.tar")
+model = load_model("app/model_importbest.pth.tar")
 class_mapping = load_class_mapping("app/class_mapping.txt")
 
 # Configure Gemini API
