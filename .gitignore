@@ -7,3 +7,5 @@ __pycache__/
 .env.local
 .DS_Store
 node_modules
+src/server/model_best.pth.tar
+src/server/class_mapping.txt

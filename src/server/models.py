@@ -14,6 +14,7 @@ class PlantInfo(BaseModel):
     soil_type: Optional[str] = None
     sunlight: Optional[str] = None
     watering: Optional[str] = None
+    health_status: Optional[str] = None  
 
 class PlantRecognitionResponse(BaseModel):
     success: bool

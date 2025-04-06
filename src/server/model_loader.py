@@ -3,7 +3,24 @@ import timm
 from PIL import Image
 import io
 import base64
-import yaml
+from transformers import AutoConfig, AutoModelForImageClassification, AutoFeatureExtractor
+
+def load_disease_model(model_dir):
+    config = AutoConfig.from_pretrained(model_dir)
+    model = AutoModelForImageClassification.from_pretrained(model_dir, config=config)
+    feature_extractor = AutoFeatureExtractor.from_pretrained(model_dir)
+    model.eval()
+    return model, feature_extractor
+
+def preprocess_disease_image(base64_image, feature_extractor):
+    from PIL import Image
+    import io
+    import base64
+
+    image_data = base64.b64decode(base64_image)
+    image = Image.open(io.BytesIO(image_data)).convert("RGB")
+    inputs = feature_extractor(images=image, return_tensors="pt")
+    return inputs
 
 # Load model
 def load_model(model_path):
