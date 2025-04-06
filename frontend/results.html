@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyGreenThumb - Best Plants Based on Your Region</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">MyGreenThumb</div>
+    <nav>
+      <a href="#">Identification</a>
+      <a href="#">Planning</a>
+      <a href="index.html">Garden</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <h1>Here are the best plans based on your region</h1>
+
+    <div id="map-container">
+      <!-- Satellite map image will be displayed here -->
+      <img id="satellite-map" src="" alt="Satellite Map" />
+    </div>
+
+    <!-- Plant Plans Section -->
+    <div id="plant-plans">
+      <div class="plan">
+        <img src="https://via.placeholder.com/150" alt="Plant Image">
+        <h3>Title</h3>
+        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+        <button>Button</button>
+      </div>
+      <div class="plan">
+        <img src="https://via.placeholder.com/150" alt="Plant Image">
+        <h3>Title</h3>
+        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+        <button>Button</button>
+      </div>
+      <div class="plan">
+        <img src="https://via.placeholder.com/150" alt="Plant Image">
+        <h3>Title</h3>
+        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
+        <button>Button</button>
+      </div>
+    </div>
+
+    <!-- Error Message Container -->
+    <div id="error-message"></div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <p>Made by Los Stars</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const satelliteImage = sessionStorage.getItem('satelliteImage');
+      if (satelliteImage) {
+        const imgElement = document.getElementById('satellite-map');
+        imgElement.src = `data:image/png;base64,${satelliteImage}`;
+      } else {
+        // Display an error message if no image data is found
+        document.getElementById('error-message').textContent =
+          'No satellite image found. Please go back and search for an address first.';
+      }
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
