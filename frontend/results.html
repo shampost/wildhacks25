@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyGreenThumb - Best Plants Based on Your Region</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <!-- Header Section -->
   <header>
     <div class="logo">MyGreenThumb</div>
     <nav>
-      <a href="#">Identification</a>
       <a href="#">Planning</a>
       <a href="index.html">Garden</a>
     </nav>
@@ -19,7 +20,7 @@
 
   <!-- Main Section -->
   <main>
-    <h1>Here are the best plans based on your region</h1>
+    <h1>Here are the best plants based on your region</h1>
 
     <div id="map-container">
       <!-- Satellite map image will be displayed here -->
@@ -28,24 +29,7 @@
 
     <!-- Plant Plans Section -->
     <div id="plant-plans">
-      <div class="plan">
-        <img src="https://via.placeholder.com/150" alt="Plant Image">
-        <h3>Title</h3>
-        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-        <button>Button</button>
-      </div>
-      <div class="plan">
-        <img src="https://via.placeholder.com/150" alt="Plant Image">
-        <h3>Title</h3>
-        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-        <button>Button</button>
-      </div>
-      <div class="plan">
-        <img src="https://via.placeholder.com/150" alt="Plant Image">
-        <h3>Title</h3>
-        <p>Body text for whatever you'd like to say. Add main takeaway points, quotes, anecdotes, or even a very short story.</p>
-        <button>Button</button>
-      </div>
+      <!-- These plans will be dynamically populated -->
     </div>
 
     <!-- Error Message Container -->
@@ -60,18 +44,56 @@
   </footer>
 
   <script>
+    // When DOM content is loaded:
     document.addEventListener('DOMContentLoaded', () => {
+      // Show satellite image if available
       const satelliteImage = sessionStorage.getItem('satelliteImage');
       if (satelliteImage) {
         const imgElement = document.getElementById('satellite-map');
         imgElement.src = `data:image/png;base64,${satelliteImage}`;
       } else {
-        // Display an error message if no image data is found
         document.getElementById('error-message').textContent =
           'No satellite image found. Please go back and search for an address first.';
       }
-    });
+
+      // Retrieve and parse Gemini plant data from session storage
+      const geminiPlants = sessionStorage.getItem('geminiPlants');
+      if (geminiPlants) {
+        try {
+          const plantArr = JSON.parse(geminiPlants);
+          const plantPlansContainer = document.getElementById('plant-plans');
+          // Clear any existing content
+          plantPlansContainer.innerHTML = "";
+
+          // Inside your script block in results.html
+          plantArr.forEach(plant => {
+            // Create a new element for each plan
+            const planDiv = document.createElement('div');
+            planDiv.classList.add('plan');
+
+            // Use the imageUrl from Unsplash if available, otherwise use placeholder
+            const imgSrc = plant.imageUrl || "https://via.placeholder.com/150";
+
+            planDiv.innerHTML = `
+    <img src="${imgSrc}" alt="${plant.plantName} image">
+    <h3>${plant.plantName}</h3>
+    <p>
+      <strong>Scientific Name:</strong> ${plant.scientificName}<br>
+      <strong>Reason:</strong> ${plant.reason}<br>
+      <strong>Care:</strong> ${plant.careInstruction}
+    </p>
+  `;
+            plantPlansContainer.appendChild(planDiv);
+          });
+        } catch (error) {
+          console.error('Error parsing geminiPlants:', error);
+          document.getElementById('error-message').textContent =
+            'An error occurred while loading plant data.';
+        }
+        }
+      });
   </script>
   <script src="script.js"></script>
 </body>
+
 </html>

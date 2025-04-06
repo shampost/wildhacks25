@@ -4,17 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const addressInput = document.getElementById('address');
 
   if (searchBtn) {
+    // Handle the "Search" button click
     searchBtn.addEventListener('click', () => {
       const address = addressInput.value.trim();
       if (!address) {
         alert('Please enter an address.');
         return;
       }
+
+      // Send the address to your Flask backend
       fetch('http://127.0.0.1:5200/get-satellite-image', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ address })
       })
         .then(response => response.json())
@@ -23,10 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Error: ${data.error}`);
             console.error('Debug info:', data.debug);
           } else {
-            // Save the base64 image and coordinates in session storage
+            console.log("Backend response:", data); // Debug log
+            // Save relevant data in sessionStorage
             sessionStorage.setItem('satelliteImage', data.image);
             sessionStorage.setItem('coordinates', JSON.stringify(data.coordinates));
-            // Redirect to the results page (update the filename if needed)
+            sessionStorage.setItem('geminiRawOutput', data.geminiRaw || '');
+            // Save the plants array
+            sessionStorage.setItem('geminiPlants', JSON.stringify(data.plants || []));
+            
+            // Redirect to the results page
             window.location.href = 'results.html';
           }
         })
@@ -36,8 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    cancelBtn.addEventListener('click', () => {
-      addressInput.value = '';
-    });
+    // Handle the "Cancel" button click
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        addressInput.value = '';
+      });
+    }
   }
 });
