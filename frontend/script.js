@@ -17,25 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({ address })
       })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          alert(`Error: ${data.error}`);
-          console.error('Debug info:', data.debug);
-        } else {
-          // Save the base64 image and coordinates in session storage
-          sessionStorage.setItem('satelliteImage', data.image);
-          sessionStorage.setItem('coordinates', JSON.stringify(data.coordinates));
-          // Redirect to the results page (update the filename if needed)
-          window.location.href = 'result.html';
-        }
-      })
-      .catch(error => {
-        console.error('Error sending address to backend:', error);
-        alert('An error occurred while processing your request.');
-      });
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+            alert(`Error: ${data.error}`);
+            console.error('Debug info:', data.debug);
+          } else {
+            // Save the base64 image and coordinates in session storage
+            sessionStorage.setItem('satelliteImage', data.image);
+            sessionStorage.setItem('coordinates', JSON.stringify(data.coordinates));
+            // Redirect to the results page (update the filename if needed)
+            window.location.href = 'results.html';
+          }
+        })
+        .catch(error => {
+          console.error('Error sending address to backend:', error);
+          alert('An error occurred while processing your request.');
+        });
     });
-  
+
     cancelBtn.addEventListener('click', () => {
       addressInput.value = '';
     });

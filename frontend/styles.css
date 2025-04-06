@@ -6,7 +6,8 @@
 }
 
 /* Full viewport height with no horizontal scrolling */
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -53,8 +54,10 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;   /* center content horizontally */
-    justify-content: center;  /* center content vertically */
+    align-items: center;
+    /* center content horizontally */
+    justify-content: center;
+    /* center content vertically */
     padding: 20px;
     text-align: center;
 }
@@ -73,7 +76,7 @@ main h1 {
 #satellite-map {
     width: 100%;
     max-width: 800px;
-    height: 200px;
+    height: 300px;
     border: 2px solid #ddd;
     border-radius: 10px;
     object-fit: cover;
