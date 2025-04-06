@@ -14,7 +14,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Make body a flex container so the footer stays at the bottom */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -22,7 +21,7 @@ body {
     flex-direction: column;
 }
 
-/* Header styling */
+
 header {
     display: flex;
     justify-content: space-between;
