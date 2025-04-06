@@ -1,4 +1,3 @@
-
 :root {
   --primary-bg: #758B84;
   --secondary-bg: #1f2d24;
@@ -13,14 +12,15 @@
   --error-red: #ff3333;
 }
 
-
+/* Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
@@ -34,34 +34,57 @@ body {
   flex-direction: column;
 }
 
-.Index_body{
+.Index_body {
   font-family: Arial, sans-serif;
   background-image: url('./images/leaf_stockphoto.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-size: cover;
 }
 
-.ID_body{
+.Index_body main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center;     /* Centers content horizontally */
+  padding: 40px 20px;      /* Add more padding for better spacing */
+  margin-top: -50px;       /* Offset to move content up slightly */
+}
 
+.Index_body h1 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  max-width: 800px;
+  text-align: center;
+}
+
+.ID_body {
   font-family: Arial, sans-serif;
   background-color: var(--primary-bg);
   color: var(--text-dark);
   display: flex;
   flex-direction: column;
-
 }
 
-
-h1, h2, h3, h4 {
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
   font-family: monospace;
   color: var(--text-dark);
+  margin-bottom: 15px;
 }
 
 h1 {
   font-size: 2.5rem;
   color: #f5ece5;
   margin: 20px 0;
+  text-align: center;
 }
 
 h2 {
@@ -72,26 +95,23 @@ h2 {
 h3 {
   font-size: 1.5rem;
   margin: 10px 0;
-  border-left: 0px;
-  text-align:left;
+  text-align: left;
 }
-
-
 
 p {
   color: var(--text-light);
   line-height: 1.5;
   margin: 10px 0;
-  border-left: 10px;
 }
 
-.results_header{
+/* Header Styles */
+.results_header {
   background-image: url('./images/green_stockphoto.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.ID_header{
+.ID_header {
   background-image: url('./images/green_stockphoto.jpg');
   background-size: cover;
   background-position: center;
@@ -131,6 +151,7 @@ header nav a:hover {
   color: var(--accent-green);
 }
 
+/* Main Content */
 main {
   flex: 1;
   display: flex;
@@ -142,14 +163,17 @@ main {
   padding: 20px;
 }
 
+/* Footer */
 footer {
   background-color: var(--secondary-bg);
   padding: 20px;
   text-align: center;
   width: 100%;
+  margin-top: auto;
 }
 
-footer p, footer a {
+footer p,
+footer a {
   color: var(--footer-text);
   font-size: 14px;
   margin: 5px 0;
@@ -165,51 +189,37 @@ footer p, footer a {
   color: var(--accent-green);
 }
 
-
-.button {
-  padding: 14px 28px;
-  background-color: var(--accent-green);
-  color: var(--text-light);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: monospace;
-  font-size: 16px;
-  font-weight:bold;
-  transition: background-color 0.3s;
-  margin: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-
-}
-
+/* Buttons */
+.button,
+button,
+#search,
 #cancel {
+  padding: 12px 24px;
   background-color: var(--accent-green);
   color: var(--text-light);
-  padding: 10px 20px;
-  border-radius: 8px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
   font-family: monospace;
   font-size: 16px;
-  font-weight:bold;
-  transition: background-color 0.3s;
-
-}
-#search{
-  background-color: var(--accent-green);
-  color: var(--text-light);
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-family: monospace;
-  font-size: 16px;
-  font-weight:bold;
-  transition: background-color 0.3s;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.button:hover {
+.button:hover,
+button:hover,
+#search:hover,
+#cancel:hover {
   background-color: var(--accent-green-hover);
+  transform: translateY(-2px);
+}
+
+.button:active,
+button:active,
+#search:active,
+#cancel:active {
+  transform: translateY(1px);
 }
 
 .button.secondary {
@@ -221,7 +231,7 @@ footer p, footer a {
   background-color: #ccc;
 }
 
-
+/* Cards */
 .card {
   background-color: var(--card-bg);
   padding: 20px;
@@ -232,42 +242,136 @@ footer p, footer a {
   max-width: 800px;
 }
 
+/* Plant Plans Section */
+#plant-plans {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 30px 0;
+  gap: 20px;
+}
+
 .plan {
-  width: 30%;
+  flex: 1 0 calc(33.333% - 40px);
   min-width: 250px;
+  max-width: calc(33.333% - 40px);
   background-color: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  margin: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .plan img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 15px;
 }
 
+.plan h3 {
+  font-size: 1.5rem;
+  margin: 0 0 10px 0;
+  color: var(--text-dark);
+}
 
+.plan p {
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+  flex-grow: 1;
+}
+
+.plan button {
+  align-self: center;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Search Container */
 .search-container {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+  width: 100%;
+  max-width: 600px;
 }
 
 .search-container input {
-  padding: 10px;
+  padding: 12px;
   font-size: 16px;
   border: 2px solid var(--border-color);
-  border-radius: 4px;
+  border-radius: 8px;
   margin-right: 10px;
   background-color: var(--card-bg);
+  width: 100%;
+  flex: 1;
 }
 
+.search-container .buttons {
+  display: flex;
+  gap: 10px;
+}
 
+/* Map Container */
+#map-container {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#satellite-map {
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Error Message */
+#error-message {
+  color: var(--error-red);
+  margin-top: 20px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Detail Container */
+.detail-container {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  width: 100%;
+}
+
+.detail-container h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: var(--accent-green);
+  font-family: monospace;
+  text-align: left;
+}
+
+.detail-container p {
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Utility Classes */
 .text-center {
   text-align: center;
 }
@@ -302,116 +406,67 @@ footer p, footer a {
   margin-bottom: 20px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
 
-#map-container {
-  margin: 20px 0;
-  width: 100%;
-}
+  header .logo {
+    margin-bottom: 15px;
+    font-size: 36px;
+  }
 
-#satellite-map {
-  width: 100%;
-  max-width: 800px;
-  height: 200px;
-  border: 2px solid var(--border-color);
-  border-radius: 10px;
-  object-fit: cover;
-}
+  #plant-plans {
+    justify-content: center;
+  }
 
-#error-message {
-  color: var(--error-red);
-  margin-top: 20px;
-  font-size: 16px;
-}
+  .plan {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
 
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent background */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
 
-.home-page header {
-  background-image: url('./images/home-bg.jpg');
-}
+  .search-container input {
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: var(--card-bg);
+    width: 100%;
+  }
 
-.plants-page header {
-  background-image: url('./images/green_stockphoto.jpg');
-}
+  .search-container .buttons {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+  }
 
-.home-page .hero {
-  height: 300px;
-}
+  /* Make the buttons more prominent */
+  .search-container button {
+    flex: 1;
+    padding: 15px 24px;
+    font-size: 18px;
+  }
 
-.plants-page .hero {
-  height: 200px;
-}
-
-
-#plant-plans {
-  display: flex;
-  justify-content:space-around;
-  flex-wrap: wrap;
-  margin-top: 0px;
-  
-}
-
-.detail-container {
-  margin-bottom: 10px; /* Add spacing between containers */
-  padding: 0px;
-  border: 5px solid #e0e0e0; /* Optional: Add a border */
-  border-radius: 1px; /* Optional: Add rounded corners */
-  background-color: #f9f9f9; /* Optional: Add a background color */
-  justify-content:left;
-  flex-wrap: wrap;
-  display: flex;
-}
-
-.detail-container h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #2c7a3d; /* Match the color scheme */
-  font-family: monospace;
-  margin: 10px 0;
-  text-align: left;
-}
-
-.detail-container p {
-  margin: 5px 0 0;
-  color: #333;
-  line-height: 2.15;
-  text-align: left;
-}
-
-.carousel{
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-
-}
-
-.plan button{
-  background-color: var(--accent-green);
-  color: var(--text-light);
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-family: monospace;
-  font-size: 16px;
-  font-weight:bold;
-  transition: background-color 0.3s;
-}
-#plant-details{
-  width: 100%;
-  text-align:left;
-}
-
-#plant-details .detail-container h3{
-  text-align: left!important;
-  margin-left: 0;
-  padding-left: 0;
-  border-left: none;
-}
-#plant-plans .plan{
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items:center;
-flex-wrap: wrap;
+  h1 {
+    font-size: 2rem;
+  }
 }
